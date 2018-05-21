@@ -11,29 +11,6 @@
 /* ************************************************************************** */
 
 #include "filler.h"
-/*
-static void	first_init(t_filler *par, int x, int y)
-{
-	if (x == y && par->line)
-		ft_printf("0 0\n");
-}
-*//*
-static void	write_str(t_filler *par)
-{
-	char	ch;
-	int		i;
-
-	i = 0;
-	par->line = (char*)malloc(sizeof(char) * 2);
-	while (read(0, &ch, 1) > 0)
-	{
-		par->line[i] = (char)malloc(sizeof(char) * 1);
-		par->line[i] = ch;
-		i++;
-	}
-	par->line[i] = '\0';
-}
-*/
 
 static void	init_par(t_filler *par)
 {
@@ -52,30 +29,13 @@ static void	init_par(t_filler *par)
 	par->error = 56;
 	par->step = 0;
 }
-/*
-static void	first_parse(t_filler *par, char *line)
-{
-	int	i;
-	int x;
 
-	i = 8;
-	x = 0;
-	if (get_next_line(0, &line) > 0 && ft_strncmp("$$$", line, 3) == 0)
-		par->player = line[10] - '0';
-	else if (ft_strncmp("Plateau", line, 7) == 0)
-	{
-		par->sizeY = ft_atoi(&line[i]);
-		while(ft_isdigit(line[i]))
-			i++;
-		par->sizeX = ft_atoi(&line[i + 1]);
-	}
-}
-*/
 int			main(void)
 {
 	t_filler	*par;
 	char		*line;
 	int i;
+	int a = 0;
 
 	init_par((par = (t_filler*)malloc(sizeof(t_filler))));
 	while (get_next_line(0, &line) > 0)
@@ -89,7 +49,8 @@ int			main(void)
 			while(ft_isdigit(line[i]))
 				i++;
 			par->sizeX = ft_atoi(&line[i + 1]);
-			while(par->sizeY-- >= 0)
+			i = 0;
+			while(i++ < par->sizeY)
 				get_next_line(0, &line);
 		}
 		if (ft_strncmp("Piece", line, 5) == 0)
@@ -99,10 +60,13 @@ int			main(void)
 			while(ft_isdigit(line[i]))
 				i++;
 			par->tokenX = ft_atoi(&line[i + 1]);
-			while(par->tokenY-- > 0)
+			i = 0;
+			while(i++ < par->tokenY)
 				get_next_line(0, &line);
 		}
-		ft_printf("0 0\n");
+		ft_printf("%d %d\n", a, a);
+		a += 1;
 	}
+//	ft_printf("%d\t%d\t%d\t%d\n", par->sizeY, par->sizeX, par->tokenY, par->tokenX);
 	return (0);
 }
