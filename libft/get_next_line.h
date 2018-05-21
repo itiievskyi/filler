@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.h                                           :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itiievsk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/21 11:27:31 by itiievsk          #+#    #+#             */
-/*   Updated: 2018/05/21 11:27:36 by itiievsk         ###   ########.fr       */
+/*   Created: 2018/04/16 10:04:49 by itiievsk          #+#    #+#             */
+/*   Updated: 2018/04/16 10:04:51 by itiievsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLER_H
-# define FILLER_H
-# include "./libft/libft.h"
-# include "./libft/ft_printf/ft_printf.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFF_SIZE 1000
+# include <stdlib.h>
+# include <sys/types.h>
+# include <unistd.h>
+# include "libft.h"
 
-typedef struct		s_filler
-{
-	char			*line;
-	char			**map;
-	char			**token;
-	int				sizeY;
-	int				sizeX;
-	int				player;
-	int				curX;
-	int				curY;
-	int				retX;
-	int				retY;
-	int				tokenX;
-	int				tokenY;
-	int				error;
-	int				step;
-}					t_filler;
+int				get_next_line(const int fd, char **line);
 
 #endif
