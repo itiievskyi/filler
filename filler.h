@@ -22,7 +22,7 @@ typedef struct		s_filler
 	char			**token;
 	int				sizeY;
 	int				sizeX;
-	int				player;
+	char			player;
 	int				curX;
 	int				curY;
 	int				retX;
@@ -32,5 +32,7 @@ typedef struct		s_filler
 	int				error;
 	int				step;
 }					t_filler;
-
+void				init_par(t_filler *par);
+void				reinit_par(t_filler *par);
+void				solve_filler(t_filler *par);
 #endif

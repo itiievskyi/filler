@@ -23,6 +23,8 @@ DIR_O = obj
 HEADER = filler.h
 
 SOURCES =	filler.c\
+			struct.c\
+			solver.c\
 
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
