@@ -14,6 +14,7 @@
 # define FILLER_H
 # include "./libft/libft.h"
 # include "./libft/ft_printf/ft_printf.h"
+# define ABS(x) (x < 0 ? (x * -1) : x)
 
 typedef struct		s_filler
 {
@@ -23,6 +24,7 @@ typedef struct		s_filler
 	int				sizeY;
 	int				sizeX;
 	char			player;
+	char			enemy;
 	int				curX;
 	int				curY;
 	int				retX;
@@ -31,6 +33,7 @@ typedef struct		s_filler
 	int				tokenY;
 	int				error;
 	int				step;
+	int				dist;
 }					t_filler;
 void				init_par(t_filler *par);
 void				reinit_par(t_filler *par);

@@ -20,6 +20,7 @@ void	init_par(t_filler *par)
 	par->sizeY = 0;
 	par->sizeX = 0;
 	par->player = 'O';
+	par->enemy = 'X';
 	par->curX = 0;
 	par->curY = 0;
 	par->retX = 0;
@@ -28,6 +29,7 @@ void	init_par(t_filler *par)
 	par->tokenY = 0;
 	par->error = 0;
 	par->step = 0;
+	par->dist = 100000;
 }
 
 void	reinit_par(t_filler *par)
@@ -42,4 +44,5 @@ void	reinit_par(t_filler *par)
 	par->tokenX = 0;
 	par->tokenY = 0;
 	par->error = 0;
+	par->dist = 100000;
 }

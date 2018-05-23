@@ -12,6 +12,16 @@
 
 #include "filler.h"
 
+static void	check_distance(t_filler *par)
+{
+//	if ((ABS(par->curX - (par->sizeX / 2)) + ABS(par->curY - (par->sizeY / 2))) < par->dist)
+//	{
+		par->retX = par->curX;
+		par->retY = par->curY;
+//		par->dist = (ABS(par->curX - (par->sizeX / 2)) + ABS(par->curY - (par->sizeY / 2)));
+//	}
+}
+
 static void	check_place(t_filler *par, int x, int y, int overlap)
 {
 	par->error = 0;
@@ -36,10 +46,7 @@ static void	check_place(t_filler *par, int x, int y, int overlap)
 		y++;
 	}
 	if (overlap == 1 && !par->error)
-	{
-		par->retX = par->curX;
-		par->retY = par->curY;
-	}
+		check_distance(par);
 }
 
 void		solve_filler(t_filler *par)
@@ -54,5 +61,6 @@ void		solve_filler(t_filler *par)
 		}
 		(par->curY) += 1;
 	}
-//	reinit_par(par);
+	ft_printf("%d %d\n", par->retY, par->retX);
+	reinit_par(par);
 }
