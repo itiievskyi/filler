@@ -54,5 +54,5 @@ void		solve_filler(t_filler *par)
 		}
 		(par->curY) += 1;
 	}
-	reinit_par(par);
+//	reinit_par(par);
 }

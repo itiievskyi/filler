@@ -32,9 +32,9 @@ void	init_par(t_filler *par)
 
 void	reinit_par(t_filler *par)
 {
-	free(par->line);
-	free(par->map);
-	free(par->token);
+//	free(par->line);
+//	free(par->map);
+//	free(par->token);
 	par->curX = 0;
 	par->curY = 0;
 	par->retX = 0;
