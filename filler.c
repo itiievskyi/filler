@@ -75,6 +75,7 @@ int			main(void)
 		get_next_line(0, &par->line);
 		read_token(par, 6);
 		solve_filler(par);
+		++par->step;
 	}
 	return (0);
 }

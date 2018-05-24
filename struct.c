@@ -29,7 +29,9 @@ void	init_par(t_filler *par)
 	par->tokenY = 0;
 	par->error = 0;
 	par->step = 0;
-	par->dist = 100000;
+	par->dist = 1000000;
+	par->e_coord = 0;
+	par->p_coord = 0;
 }
 
 void	reinit_par(t_filler *par)
@@ -44,5 +46,6 @@ void	reinit_par(t_filler *par)
 	par->tokenX = 0;
 	par->tokenY = 0;
 	par->error = 0;
-	par->dist = 100000;
+	par->dist = 1000000;
+	par->e_coord = 0;
 }
