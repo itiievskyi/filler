@@ -34,6 +34,7 @@ void	init_par(t_filler *par)
 	par->e_coord = 0;
 	par->p_coord = 0;
 	par->items = 0;
+	par->space = 0;
 }
 
 void	reinit_par(t_filler *par)

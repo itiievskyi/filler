@@ -12,10 +12,46 @@
 
 #include "filler.h"
 
+static void	check_space(t_filler *par, int x, int y, int index)
+{
+	int space = 0;
+	while (y < par->sizeY)
+	{
+		x = 0;
+		while (x < par->sizeX)
+		{
+			if (par->map[y][x] == 'x' || par->map[y][x] == 'X')
+			{
+				index = 0;
+				while(y - ++index >= 0 && par->map[y - index][x] == '.')
+					space++;
+				index = 0;
+				while(y + ++index < par->sizeY && par->map[y + index][x] == '.')
+					space++;
+				index = 0;
+				while(x + ++index < par->sizeX && par->map[y][x + index] == '.')
+					space++;
+				index = 0;
+				while(x - ++index >= 0 && par->map[y][x - index] == '.')
+					space++;
+			}
+			x++;
+		}
+		y++;
+	}
+//	if ((items - par->items) && par->step > 1)
+//		par->e_coord = ((int)coord - (int)(par->coord)) / (items - par->items);
+	par->space = space;
+//	ft_putstr_fd("\npar->space = ", 2);
+//	ft_putnbr_fd(par->space, 2);
+//	ft_putstr_fd("\n", 2);
+}
+
 static void	check_e_coord(t_filler *par, int x, int y)
 {
 	int coord = 0;
 	int items = 0;
+
 	while (y < par->sizeY)
 	{
 		x = 0;
@@ -92,6 +128,7 @@ static void	check_place(t_filler *par, int x, int y, int overlap)
 
 void		solve_filler(t_filler *par)
 {
+	check_space(par, 0, 0, 0);
 	check_e_coord(par, 0, 0);
 	while ((par->curY) + (par->tokenY) <= (par->sizeY))
 	{

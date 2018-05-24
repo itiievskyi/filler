@@ -38,6 +38,7 @@ typedef struct		s_filler
 	int				e_coord;
 	int				p_coord;
 	int				items;
+	int				space;
 }					t_filler;
 void				init_par(t_filler *par);
 void				reinit_par(t_filler *par);
