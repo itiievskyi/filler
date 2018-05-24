@@ -34,8 +34,10 @@ typedef struct		s_filler
 	int				error;
 	int				step;
 	int				dist;
+	int				coord;
 	int				e_coord;
 	int				p_coord;
+	int				items;
 }					t_filler;
 void				init_par(t_filler *par);
 void				reinit_par(t_filler *par);

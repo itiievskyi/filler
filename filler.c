@@ -30,6 +30,9 @@ static void	read_map(t_filler *par, int i, int a)
 		{
 			a = 0;
 			get_next_line(0, &par->line);
+//												ft_putstr_fd("\nline = ", 2);
+//												ft_putstr_fd(par->line, 2);
+//												ft_putstr_fd("\n", 2);
 			while(ft_isdigit(par->line[a]))
 				a++;
 			par->map[i] = ft_strdup(&par->line[a + 1]);
@@ -79,3 +82,18 @@ int			main(void)
 	}
 	return (0);
 }
+
+/*
+int a = 0;
+int b = 0;
+while (b < par->sizeY)
+{
+	a = 0;
+	while (a < par->sizeX)
+	{
+		ft_putchar_fd(par->map[b][a], 2);
+		a++;
+	}
+	ft_putstr_fd("\n", 2);
+	b++;
+}*/
