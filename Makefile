@@ -25,6 +25,7 @@ HEADER = filler.h
 SOURCES =	filler.c\
 			struct.c\
 			solver.c\
+			testers.c\
 
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))

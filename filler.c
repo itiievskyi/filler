@@ -17,23 +17,20 @@ static void	read_map(t_filler *par, int i, int a)
 {
 	if (par->step == 1)
 	{
-		par->sizeY = ft_atoi(&par->line[i]);
-		while(ft_isdigit(par->line[i]))
+		par->sizey = ft_atoi(&par->line[i]);
+		while (ft_isdigit(par->line[i]))
 			i++;
-		par->sizeX = ft_atoi(&par->line[i + 1]);
+		par->sizex = ft_atoi(&par->line[i + 1]);
 	}
-	if ((par->map = (char**)malloc(sizeof(char*) * par->sizeY)))
+	if ((par->map = (char**)malloc(sizeof(char*) * par->sizey)))
 	{
 		i = 0;
 		get_next_line(0, &par->line);
-		while(i < par->sizeY)
+		while (i < par->sizey)
 		{
 			a = 0;
 			get_next_line(0, &par->line);
-//												ft_putstr_fd("\nline = ", 2);
-//												ft_putstr_fd(par->line, 2);
-//												ft_putstr_fd("\n", 2);
-			while(ft_isdigit(par->line[a]))
+			while (ft_isdigit(par->line[a]))
 				a++;
 			par->map[i] = ft_strdup(&par->line[a + 1]);
 			i++;
@@ -43,14 +40,14 @@ static void	read_map(t_filler *par, int i, int a)
 
 static void	read_token(t_filler *par, int i)
 {
-	par->tokenY = ft_atoi(&par->line[i]);
-	while(ft_isdigit(par->line[i]))
+	par->tokeny = ft_atoi(&par->line[i]);
+	while (ft_isdigit(par->line[i]))
 		i++;
-	par->tokenX = ft_atoi(&par->line[i + 1]);
-	if ((par->token = (char**)malloc(sizeof(char*) * par->tokenY)))
+	par->tokenx = ft_atoi(&par->line[i + 1]);
+	if ((par->token = (char**)malloc(sizeof(char*) * par->tokeny)))
 	{
 		i = 0;
-		while(i < par->tokenY)
+		while (i < par->tokeny)
 		{
 			get_next_line(0, &par->line);
 			par->token[i] = ft_strdup(par->line);
@@ -62,6 +59,7 @@ static void	read_token(t_filler *par, int i)
 int			main(void)
 {
 	t_filler	*par;
+
 	init_par((par = (t_filler*)malloc(sizeof(t_filler))));
 	if (get_next_line(0, &(par->line)) > 0)
 	{
@@ -69,6 +67,7 @@ int			main(void)
 		{
 			par->player = 'X';
 			par->enemy = 'O';
+			par->enemy2 = 'o';
 		}
 		++par->step;
 	}
@@ -80,20 +79,6 @@ int			main(void)
 		solve_filler(par);
 		++par->step;
 	}
+	free(par);
 	return (0);
 }
-
-/*
-int a = 0;
-int b = 0;
-while (b < par->sizeY)
-{
-	a = 0;
-	while (a < par->sizeX)
-	{
-		ft_putchar_fd(par->map[b][a], 2);
-		a++;
-	}
-	ft_putstr_fd("\n", 2);
-	b++;
-}*/

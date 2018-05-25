@@ -1,0 +1,39 @@
+
+/*
+int a = 0;
+int b = 0;
+while (b < par->sizey)
+{
+	a = 0;
+	while (a < par->sizex)
+	{
+		ft_putchar_fd(par->map[b][a], 2);
+		a++;
+	}
+	ft_putstr_fd("\n", 2);
+	b++;
+}*/
+
+/*
+	ft_putstr_fd("\nSTEP = ", 2);
+	ft_putnbr_fd(par->step, 2);
+	ft_putstr_fd("\n", 2);
+	ft_putstr_fd("\npar->coord = ", 2);
+	ft_putnbr_fd(par->coord, 2);
+	ft_putstr_fd("\n", 2);
+	ft_putstr_fd("\ncoord = ", 2);
+	ft_putnbr_fd(coord, 2);
+	ft_putstr_fd("\n", 2);
+	ft_putstr_fd("\ne_coord = ", 2);
+	ft_putnbr_fd(par->e_coord, 2);
+	ft_putstr_fd("\n", 2);
+*/
+
+
+/*
+		ft_putstr_fd("\np_coord = ", 2);
+		ft_putnbr_fd(par->p_coord, 2);
+		ft_putstr_fd("\ndist = ", 2);
+		ft_putnbr_fd(par->dist, 2);
+		ft_putstr_fd("\n", 2);
+*/
