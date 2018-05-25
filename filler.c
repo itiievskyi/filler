@@ -15,6 +15,7 @@
 
 static void	read_map(t_filler *par, int i, int a)
 {
+	free(par->line);
 	if (par->step == 1)
 	{
 		par->sizey = ft_atoi(&par->line[i]);
@@ -26,6 +27,7 @@ static void	read_map(t_filler *par, int i, int a)
 	{
 		i = 0;
 		get_next_line(0, &par->line);
+		free(par->line);
 		while (i < par->sizey)
 		{
 			a = 0;
@@ -33,6 +35,7 @@ static void	read_map(t_filler *par, int i, int a)
 			while (ft_isdigit(par->line[a]))
 				a++;
 			par->map[i] = ft_strdup(&par->line[a + 1]);
+			free(par->line);
 			i++;
 		}
 	}
@@ -44,6 +47,7 @@ static void	read_token(t_filler *par, int i)
 	while (ft_isdigit(par->line[i]))
 		i++;
 	par->tokenx = ft_atoi(&par->line[i + 1]);
+	free(par->line);
 	if ((par->token = (char**)malloc(sizeof(char*) * par->tokeny)))
 	{
 		i = 0;
@@ -51,6 +55,7 @@ static void	read_token(t_filler *par, int i)
 		{
 			get_next_line(0, &par->line);
 			par->token[i] = ft_strdup(par->line);
+			free(par->line);
 			i++;
 		}
 	}
@@ -70,6 +75,7 @@ int			main(void)
 			par->enemy2 = 'o';
 		}
 		++par->step;
+		free(par->line);
 	}
 	while (get_next_line(0, &(par->line)) > 0)
 	{
@@ -78,7 +84,9 @@ int			main(void)
 		read_token(par, 6);
 		solve_filler(par);
 		++par->step;
+		free_data(par);
 	}
 	free(par);
+//	system("leaks itiievsk.filler");
 	return (0);
 }

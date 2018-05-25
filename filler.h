@@ -52,4 +52,5 @@ void				check_distance(t_filler *par, int x, int y, int items);
 void				check_e_coord(t_filler *par, int x, int y, int items);
 void				solve_filler(t_filler *par);
 void				approve_place(t_filler *par);
+void				free_data(t_filler *par);
 #endif

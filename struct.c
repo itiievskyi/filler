@@ -63,3 +63,17 @@ void	approve_place(t_filler *par)
 	else if (par->temp_space == par->space)
 		check_distance(par, 0, 0, 0);
 }
+
+void	free_data(t_filler *par)
+{
+	int y;
+
+	y = 0;
+	while (y < par->sizey)
+		free(par->map[y++]);
+	free(par->map);
+	y = 0;
+	while (y < par->tokeny)
+		free(par->token[y++]);
+	free(par->token);
+}

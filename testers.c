@@ -136,4 +136,8 @@ void	test_space(t_filler *par, int x, int y)
 		y++;
 	}
 	check_space_dup(par, -1, -1, 0);
+	y = 0;
+	while (y < par->sizey)
+		free(par->dup[y++]);
+	free(par->dup);
 }
