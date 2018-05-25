@@ -20,6 +20,7 @@ typedef struct		s_filler
 {
 	char			*line;
 	char			**map;
+	char			**dup;
 	char			**token;
 	int				sizeY;
 	int				sizeX;

@@ -16,6 +16,7 @@ void	init_par(t_filler *par)
 {
 	par->line = NULL;
 	par->map = NULL;
+	par->dup = NULL;
 	par->token = NULL;
 	par->sizeY = 0;
 	par->sizeX = 0;
