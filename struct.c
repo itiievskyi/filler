@@ -46,8 +46,6 @@ void	reinit_par(t_filler *par)
 	par->cury = 0;
 	par->retx = 0;
 	par->rety = 0;
-	par->tokenx = 0;
-	par->tokeny = 0;
 	par->error = 0;
 	par->dist = 1000000;
 }

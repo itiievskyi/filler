@@ -87,6 +87,5 @@ int			main(void)
 		free_data(par);
 	}
 	free(par);
-//	system("leaks itiievsk.filler");
 	return (0);
 }
