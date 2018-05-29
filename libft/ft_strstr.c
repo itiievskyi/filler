@@ -18,6 +18,8 @@ char		*ft_strstr(const char *str, const char *to_find)
 	int		k;
 	char	*ptr;
 
+	if (!str || !to_find)
+		return (NULL);
 	i = 0;
 	k = 0;
 	ptr = (char *)str;
