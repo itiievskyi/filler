@@ -49,7 +49,6 @@ static void	check_finish(char *line, int o, int x)
 			ANSI_COLOR_RESET, x, o);
 		else
 			ft_printf(ANSI_COLOR_RED "\nDRAW!\n" ANSI_COLOR_RESET);
-//		system("leaks visual");
 		exit(1);
 	}
 	else
@@ -58,12 +57,20 @@ static void	check_finish(char *line, int o, int x)
 
 static void	get_full_header(char *line, char **header)
 {
-	*header = ft_strjoin(*header, "\t\tPlayer #2: ");
-	*header = ft_strjoin(*header, &line[9]);
+	char	*temp;
+
+	temp = NULL;
+	temp = ft_strjoin(*header, "\t\tPlayer #2: ");
+	free(*header);
+	*header = ft_strjoin(temp, &line[9]);
+	free(temp);
 }
 
 static void	check_quiet(char *line, char **header)
 {
+	system("clear");
+	while (get_next_line(0, &line) > 0 && !ft_strstr(line, "launched"))
+		free(line);
 	*header = ft_strjoin("Player #1: ", &line[9]);
 	free(line);
 	if (get_next_line(0, &line) > 0 && ft_strstr(line, "launched"))
@@ -74,6 +81,8 @@ static void	check_quiet(char *line, char **header)
 		if (get_next_line(0, &line) > 0)
 			check_finish(line, 0, 0);
 	}
+	else
+		free(line);
 }
 
 int			main(void)
@@ -81,23 +90,24 @@ int			main(void)
 	char	*line;
 	char	*header;
 
-	system("clear");
-	while (get_next_line(0, &line) > 0 && !ft_strstr(line, "launched"))
-		free(line);
+	line = NULL;
 	check_quiet(line, &header);
 	while (get_next_line(0, &line) > 0)
 	{
 		if (ft_strstr(line, "launched"))
 			get_full_header(line, &header);
 		free(line);
-		write(1, "\n", 1);
 		while (get_next_line(0, &line) > 0 && !ft_strstr(line, "000 "))
 			free(line);
-		ft_printf(ANSI_COLOR_MAGENTA "%s\n" ANSI_COLOR_RESET, header);
+		ft_printf(ANSI_COLOR_MAGENTA "\n%s\n" ANSI_COLOR_RESET, header);
+		print_map(line, 0);
 		while (get_next_line(0, &line) > 0 && !ft_strstr(line, "Piece"))
 			print_map(line, 0);
+		free(line);
 		while (get_next_line(0, &line) > 0 && !ft_strstr(line, "Plateau"))
 			check_finish(line, 0, 0);
+		if (ft_strstr(line, "Plateau"))
+			free(line);
 		usleep(200000);
 		system("clear");
 	}

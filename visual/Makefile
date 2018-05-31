@@ -40,9 +40,8 @@ $(DIR_O)/%.o: $(DIR_S)/%.c
 	$(C) $(FLAGS) -I $(HEADER) -o $@ -c $<
 
 norme:
-	norminette $(HEADER)
-	@echo
-	norminette $(SOURCES)
+	@norminette $(HEADER)
+	@norminette $(SOURCES)
 
 clean:
 	@rm -f $(OBJS)

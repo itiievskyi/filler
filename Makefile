@@ -45,9 +45,10 @@ $(DIR_O)/%.o: $(DIR_S)/%.c
 	$(C) $(FLAGS) -I $(HEADER) -o $@ -c $<
 
 norme:
-	norminette $(HEADER)
-	@echo
-	norminette $(SOURCES)
+	@norminette $(HEADER)
+	@norminette $(SOURCES)
+	@cd ./libft/ && make norme
+	@cd ./visual/ && make norme
 
 clean:
 	@cd ./libft/ && make clean
