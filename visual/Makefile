@@ -24,6 +24,8 @@ HEADER = visual.h
 
 SOURCES =	visual.c\
 
+LIB = ./../libft/libft.a
+
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 
 OBJS = $(addprefix $(DIR_O)/,$(SOURCES:.c=.o))
@@ -31,7 +33,7 @@ OBJS = $(addprefix $(DIR_O)/,$(SOURCES:.c=.o))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(C) $(FLAGS) -o $(NAME) $(OBJS) ./../libft/libft.a ../libft/ft_printf/libftprintf.a
+	$(C) $(FLAGS) -o $(NAME) $(OBJS) $(LIB)
 
 $(DIR_O)/%.o: $(DIR_S)/%.c
 	@mkdir -p $(DIR_O)

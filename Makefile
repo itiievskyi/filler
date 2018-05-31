@@ -22,11 +22,12 @@ DIR_O = obj
 
 HEADER = filler.h
 
+LIB = libft/libft.a
+
 SOURCES =	filler.c\
 			struct.c\
 			solver.c\
 			testers.c\
-
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 
@@ -35,8 +36,9 @@ OBJS = $(addprefix $(DIR_O)/,$(SOURCES:.c=.o))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(C) $(FLAGS) -o $(NAME) $(OBJS)\
-	 ./libft/libft.a ./libft/ft_printf/libftprintf.a
+	$(MAKE) -C ./libft/
+	$(MAKE) -C ./visual/
+	$(C) $(FLAGS) -o $(NAME) $(OBJS) $(LIB)
 
 $(DIR_O)/%.o: $(DIR_S)/%.c
 	@mkdir -p $(DIR_O)
@@ -48,10 +50,14 @@ norme:
 	norminette $(SOURCES)
 
 clean:
+	@cd ./libft/ && make clean
+	@cd ./visual/ && make clean
 	@rm -f $(OBJS)
 	@rm -rf $(DIR_O)
 
 fclean: clean
+	@cd ./libft/ && make fclean
+	@cd ./visual/ && make fclean
 	@rm -f $(NAME)
 
 re: fclean all

@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itiievsk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/16 10:04:49 by itiievsk          #+#    #+#             */
-/*   Updated: 2018/04/16 10:04:51 by itiievsk         ###   ########.fr       */
+/*   Created: 2018/03/22 11:13:45 by itiievsk          #+#    #+#             */
+/*   Updated: 2018/03/22 11:13:49 by itiievsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 1
-# include <stdlib.h>
-# include <sys/types.h>
-# include <unistd.h>
-# include "libft.h"
+#include "libft.h"
 
-int				get_next_line(const int fd, char **line);
+wchar_t	*ft_wstrdup(wchar_t *src)
+{
+	wchar_t	*dup;
+	int		i;
 
-#endif
+	if (!src)
+		return (NULL);
+	i = 0;
+	while (src[i])
+		i++;
+	if (!(dup = (wchar_t*)malloc(sizeof(*dup) * (i + 1))))
+		return (NULL);
+	i = 0;
+	while (src[i] != '\0')
+	{
+		dup[i] = src[i];
+		i++;
+	}
+	dup[i] = 0;
+	return (dup);
+}
