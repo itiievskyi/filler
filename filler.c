@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "filler.h"
-#include <stdio.h>
 
 static void	read_map(t_filler *par, int i, int a)
 {

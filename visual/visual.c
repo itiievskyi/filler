@@ -34,6 +34,11 @@ static void	print_map(char *line, int i)
 
 static void	check_finish(char *line, int o, int x)
 {
+	if (ft_strstr(line, "error"))
+	{
+		free(line);
+		get_next_line(0, &line);
+	}
 	if (ft_strstr(line, "== "))
 	{
 		o = ft_atoi(&line[10]);
@@ -48,7 +53,7 @@ static void	check_finish(char *line, int o, int x)
 			ft_printf(ANSI_COLOR_RED "\nPlayer #2 WON %d : %d\n"\
 			ANSI_COLOR_RESET, x, o);
 		else
-			ft_printf(ANSI_COLOR_RED "\nDRAW!\n" ANSI_COLOR_RESET);
+			ft_printf(ANSI_COLOR_YELLOW "\nDRAW!\n" ANSI_COLOR_RESET);
 		exit(1);
 	}
 	else
@@ -78,7 +83,14 @@ static void	check_quiet(char *line, char **header)
 		get_full_header(line, header);
 		free(line);
 		ft_printf(ANSI_COLOR_MAGENTA "\n%s\n" ANSI_COLOR_RESET, *header);
-		if (get_next_line(0, &line) > 0)
+		if (get_next_line(0, &line) > 0 && ft_strstr(line, "abort"))
+		{
+			ft_printf("%s\n", line);
+			free(line);
+			free(*header);
+			exit(1);
+		}
+		else
 			check_finish(line, 0, 0);
 	}
 	else
