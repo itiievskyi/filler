@@ -10,9 +10,9 @@
 ./resources/filler_vm -f ./resources/maps/map01 -p1 ./itiievsk.filler -p2 ./resources/players/hcao.filler -q | ./visual/visual
 ./resources/filler_vm -f ./resources/maps/map02 -p1 ./itiievsk.filler -p2 ./resources/players/hcao.filler -q | ./visual/visual
 
-./resources/filler_vm -f ./resources/maps/map01 -p0 ./itiievsk.filler -p2 ./resources/players/grati.filler -q | ./visual/visual
+./resources/filler_vm -f ./resources/maps/map00 -p1 ./itiievsk.filler -p2 ./resources/players/grati.filler -q | ./visual/visual
 ./resources/filler_vm -f ./resources/maps/map01 -p1 ./itiievsk.filler -p2 ./resources/players/grati.filler -q | ./visual/visual
-./resources/filler_vm -f ./resources/maps/map01 -p2 ./itiievsk.filler -p2 ./resources/players/grati.filler -q | ./visual/visual
+./resources/filler_vm -f ./resources/maps/map02 -p1 ./itiievsk.filler -p2 ./resources/players/grati.filler -q | ./visual/visual
 
 ./resources/filler_vm -f ./resources/maps/map00 -p1 ./itiievsk.filler -p2 ./resources/players/carli.filler -q | ./visual/visual
 ./resources/filler_vm -f ./resources/maps/map01 -p1 ./itiievsk.filler -p2 ./resources/players/carli.filler -q | ./visual/visual
